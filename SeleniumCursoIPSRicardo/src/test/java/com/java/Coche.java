@@ -10,12 +10,12 @@ public class Coche {
 	 * 3- Identidad: permite que los objetos interactuen entre si.
 	 */
 	
-	int llantas;
-	int asientos;
-	String motor;
-	boolean ac;
-	String marca;
-	String modelo;
+	private int llantas;
+	private int asientos;
+	private String motor;
+	private boolean ac;
+	private String marca;
+	private String modelo;
 	
 	// Constructores
 	
@@ -61,5 +61,71 @@ public class Coche {
 	public void encendido() {
 		System.out.println("El coche esta encendido");
 	}
+
+	
+	
+	/*
+	 * Encapsulation
+	 * 
+	 * Se puede definir como un mecanismo para ocultar instancias de variables 
+	 * de una clase
+	 * 
+	 * 1- Tener variables de instancia privadas en metodos publicos.
+	 */
+	
+	public int getLlantas() {
+		return llantas;
+	}
+
+	public void setLlantas(int llantas) {
+		if(llantas>6) {
+			this.llantas = -1;
+		}else {
+			this.llantas = llantas;
+		}
+		
+	}
+
+	public int getAsientos() {
+		return asientos;
+	}
+
+	public void setAsientos(int asientos) {
+		this.asientos = asientos;
+	}
+
+	public String getMotor() {
+		return motor;
+	}
+
+	public void setMotor(String motor) {
+		this.motor = motor;
+	}
+
+	public boolean isAc() {
+		return ac;
+	}
+
+	public void setAc(boolean ac) {
+		this.ac = ac;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	
+	
 
 }
