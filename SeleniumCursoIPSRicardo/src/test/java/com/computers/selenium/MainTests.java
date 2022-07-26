@@ -5,10 +5,15 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.testng.annotations.BeforeTest;
+
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
@@ -55,6 +60,14 @@ public class MainTests {
 	  //id-searchbox
 	  //id-searchsubmit
 	  ////tbody/tr[1]/td[1]
+	  
+	  // Implicit
+	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	  
+	  //Explicit
+	  WebDriverWait wait = new WebDriverWait(driver, 10);
+	  wait.until(ExpectedConditions.titleContains("Computers"));
+	  wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("searchbox")));
 	  
 	  //Step2 - Insert computer name in text box
 	  driver.findElement(By.id("searchbox")).sendKeys("ACE");
