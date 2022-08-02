@@ -20,6 +20,8 @@ import org.testng.annotations.AfterTest;
 public class MainTests {
   @Test
   public void f() {
+	  
+	  // LINEAR SCRIPTING
 	  /*
 	   * Locators:
 	   * ID
