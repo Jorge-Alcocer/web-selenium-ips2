@@ -1,10 +1,13 @@
 package com.selenium.base;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
+
+import javax.imageio.ImageIO;
 
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -17,6 +20,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
 
 public class Base {
 
@@ -142,6 +147,25 @@ public class Base {
 			Assert.fail("JSON file is not found");
 			return null;
 		}
+	}
+	
+	/*
+	 * Take screenshot
+	 * 
+	 * @author Ricardo Avalos
+	 * @throws IOException
+	 */
+	public String takeScreenshot(String fileName){
+		try {
+			String pathFileName= GlobalVariables.PATH_SCREENSHOTS + fileName + ".png";
+			Screenshot screenshot = new AShot().takeScreenshot(driver);
+			ImageIO.write(screenshot.getImage(), "PNG", new File(pathFileName));
+			return pathFileName;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+
 	}
 
 }

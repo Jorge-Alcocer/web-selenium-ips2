@@ -25,7 +25,9 @@ public class MainPage extends Base{
 		verifyTitleContains("Computers");
 		verifyVisibilityElement(txtFilterCompName);
 		type(txtFilterCompName, computer);
+		takeScreenshot("beforeClickFilter");
 		click(btnFilterByName);
+		takeScreenshot("afterClickFilter");
 	}
 	
 	/*
@@ -35,6 +37,7 @@ public class MainPage extends Base{
 	 */
 	public boolean verifyComputerTable(String expectedComputer) {
 		String actualComputer = getText(tblActualFirstRow);
+		takeScreenshot("verifyComputer");
 		if(expectedComputer.equals(actualComputer)) {
 			return true;
 		}else {
